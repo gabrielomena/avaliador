@@ -41,4 +41,7 @@ class Profile extends Model
         'caminho_crm',
         'caminho_especializacao'
     );
+    public function getNomeAttribute($nome){
+        return strtoupper($nome);
+    }
 }

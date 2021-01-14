@@ -20,10 +20,27 @@ class ProfileController extends Controller
         return view('welcome')->with('funcao',$funcao);
     }
 
+    public function novo(Request $request)
+    {
+        $profile = Profile::all();
+        $cpf = $request->cpf;
+        $cargo = FuncaoCargo::find($request->cargo_processo);
+        // return view('profiles.novo',['profile'=> $profile,'cpf'=>$cpf,'cargo'=>$cargo]);
+        return view('profiles.novo',compact('profile','cpf','cargo'));
+    }
+
+    public function adiciona(Request $request)
+    {
+        Profile::create($request->all());
+        return redirect()->route('home');
+    }
+
+    // AVALIAÇÃO
+
     public function candidatos()
     {
         $profiles = Profile::all();
-        return view('profiles.candidatos')->with('profiles',$profiles);
+        return view('avaliacao.candidatos')->with('profiles',$profiles);
 
     }
 
@@ -33,20 +50,6 @@ class ProfileController extends Controller
         if (empty($profiles)){
             return "Candidato não encontrado";
         }
-        return view('profiles.form')->with('p',$profiles);
-    }
-
-    public function novo(Request $request)
-    {
-        $profile = Profile::all();
-        $cpf = $request->cpf;
-        return view('profiles.novo',['profile'=> $profile,'cpf'=>$cpf]);
-    }
-
-    public function adiciona()
-    {
-        Profile::create(Request::all());
-        return redirect()
-            ->action('ProfileController@index');
+        return view('avaliacao.form')->with('p',$profiles);
     }
 }

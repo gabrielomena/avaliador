@@ -22,12 +22,12 @@ class CreateProfilesTable extends Migration
             $table->string('naturalidade');
             $table->string('rg');
             $table->string('orgao_emissor');
-            $table->string('cpf');
+            $table->string('cpf')->unique();
             $table->string('pis_pasep');
             $table->string('titulo_eleitor');
-            $table->string('cert_reservista');
+            $table->string('cert_reservista')->nullable();
             $table->string('reg_conselho');
-            $table->string('terapia_intensiva');
+            $table->string('terapia_intensiva')->nullable();
             $table->string('escolaridade');
             $table->string('sexo');
             $table->string('nome_mae');
@@ -38,7 +38,8 @@ class CreateProfilesTable extends Migration
             $table->string('cep');
             $table->string('cidade');
             $table->string('uf');
-            $table->string('id_funcao_cargo');
+            $table->integer('id_funcao_cargo')->unsigned()->nullable();
+            $table->foreign('id_funcao_cargo')->references('id')->on('funcao_cargos')->onDelete('cascade');
             $table->string('caminho_rg');
             $table->string('caminho_cpf');
             $table->string('caminho_cnh');

@@ -1,18 +1,15 @@
 @extends('profiles.padrao')
 @section('conteudo')
 
-    <div class="bgimg img-fluid">
-        <img src="{{asset('img/banner_principal.jpg')}}">
-    </div>
-
     <div class="col-sm-12 col-md-12 col-lg-12 alert-info pt-2 mt-2 rounded">
         <ul>
             <li>Selecione o processo e informe o seu CPF.</li>
             <li><b><a href="" target="_blank">Clique aqui</a></b> para ler os pré-requisitos.</li>
         </ul>
     </div>
-    <div class="col-6">
-        <form action="{{ action('ProfileController@novo') }}" method="post">
+
+    <div class="col-12 col-md-6 col-lg-6 offset-md-3">
+        <form action="{{route('candidatos.novo') }}" method="post">
             {{ csrf_field() }}
             <label for="cargo_processo">Processo Selectivo</label>
             <select class="form-control" name="cargo_processo" id="cargo_processo" tabindex="1"
@@ -30,7 +27,6 @@
 
         <script>
             $(document).ready(function () {
-
                 $("#cpf").mask("999.999.999-99");
             });
         </script>
