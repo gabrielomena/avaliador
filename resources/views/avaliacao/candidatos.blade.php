@@ -25,7 +25,7 @@
                 <td>{{$p->reg_conselho}}</td>
                 <td>{{$p->terapia_intensiva}}</td>
                 <td>
-                    <a href="candidatos/avaliar/{{$p->id}}">
+                    <a href="avaliacao/avaliar/{{$p->id}}">
                         AVALIAR
                     </a>
                 </td>

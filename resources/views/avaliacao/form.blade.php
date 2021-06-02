@@ -55,6 +55,7 @@
     <input value="{{$p->cidade}}" readonly/>
     <label>UF</label>
     <input value="{{$p->uf}}" readonly/>
+    <a href="{{$p->caminho_rg}}" target="_BLANK">RG</a>
 
     <button type="submit">Doc. Ok</button>
 </form>

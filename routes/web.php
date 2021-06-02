@@ -13,7 +13,7 @@
 
 Route::get('/','ProfileController@index')->name('home');
 Route::post('/candidatos/novo', 'ProfileController@novo')->name('candidatos.novo');
-Route::get('/candidatos/adiciona', 'ProfileController@adiciona')->name('adiciona');
+Route::post('/candidatos/adiciona', 'ProfileController@adiciona')->name('adiciona');
 
 Auth::routes();
 

@@ -1,14 +1,17 @@
 <template>
-    <div>
-        <label>Sexo<span>*</span></label>
-        <select v-model="valueSexo" class="form-control" name="sexo" id="sexo" tabindex="1" required>
-            <option value="" selected>-- Selecione --</option>
-            <option value="M">MASCULINO</option>
-            <option value="F">FEMININO</option>
-        </select>
-        <div v-if="valueSexo=='M'">
-            <label>Cert. Reservista (Para sexo masculino)<span>*</span></label>
-            <input name="cert_reservista" class="form-control" required/>
+    <div class="row">
+        <div class="col-sm-12 col-md-6">
+            <label>Sexo <span>*</span></label>
+            <select v-model="valueSexo" class="form-control mb-3" name="sexo" id="sexo" required>
+                <option value="" selected>-- Selecione --</option>
+                <option value="M">MASCULINO</option>
+                <option value="F">FEMININO</option>
+            </select>
+        </div>
+
+        <div class="col-sm-12 col-md-6" v-if="valueSexo=='M'">
+            <label>Cert. Reservista <span>*</span></label>
+            <input name="cert_reservista" class="form-control mb-3" required/>
         </div>
     </div>
 </template>
